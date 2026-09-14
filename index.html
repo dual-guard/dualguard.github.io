@@ -22,7 +22,7 @@
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">DUALGuard: A Discrepancy-driven Uncertainty-Adaptive<br>Locomotion Framework to Guard Humanoids During Stair Walking</h1>
           <!-- TODO: authors withheld for now, add names / affiliations / profile links before release -->
-          <div class="is-size-6 has-text-grey">Submitted to ICRA 2027</div>
+          <div class="is-size-6 has-text-grey">Under review at ICRA 2027</div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -36,12 +36,6 @@
                 <a href="#" id="video-link" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark is-static">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code (coming soon)</span>
                 </a>
               </span>
               <span class="link-block">
@@ -134,32 +128,27 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Simulation Results</h2>
 
-    <div class="columns">
-      <div class="column">
-        <div class="result-figure">
-          <video autoplay muted loop playsinline controls>
-            <source src="./static/videos/climb_up_compare.mp4" type="video/mp4">
-          </video>
-        </div>
-        <p class="result-caption">
-          <strong>Stair ascent: free-moving vs. carrying a payload, side by side.</strong>
-          The onboard depth scan (red points) and the foothold/swing-trace overlay are drawn
-          live as the robot walks; each foothold lands well inside the tread, consistent with
-          the landing-foothold-reachability barrier.
-        </p>
-      </div>
-      <div class="column">
-        <div class="result-figure">
-          <video autoplay muted loop playsinline controls>
-            <source src="./static/videos/climb_down_compare.mp4" type="video/mp4">
-          </video>
-        </div>
-        <p class="result-caption">
-          <strong>Stair descent: free-moving vs. carrying a payload, side by side.</strong>
-          Same overlay, viewed from the front as the robot descends the staircase.
-        </p>
-      </div>
+    <div class="result-figure">
+      <video autoplay muted loop playsinline controls>
+        <source src="./static/videos/climb_up_compare.mp4" type="video/mp4">
+      </video>
     </div>
+    <p class="result-caption">
+      <strong>Stair ascent: free-moving vs. carrying a payload, side by side.</strong>
+      The onboard depth scan (red points) and the foothold/swing-trace overlay are drawn
+      live as the robot walks; each foothold lands well inside the tread, consistent with
+      the landing-foothold-reachability barrier.
+    </p>
+
+    <div class="result-figure" style="margin-top: 2rem;">
+      <video autoplay muted loop playsinline controls>
+        <source src="./static/videos/climb_down_compare.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="result-caption">
+      <strong>Stair descent: free-moving vs. carrying a payload, side by side.</strong>
+      Same overlay, viewed from the front as the robot descends the staircase.
+    </p>
 
     <!-- TODO: add balance-safety-margin (CBF/DCM) figure once finalized -->
   </div>
@@ -216,10 +205,6 @@
     <div class="content has-text-centered">
       <a class="icon-link" href="#" id="footer-pdf-link">
         <i class="fas fa-file-pdf"></i>
-      </a>
-      <!-- TODO: code link, coming soon -->
-      <a class="icon-link is-static">
-        <i class="fab fa-github"></i>
       </a>
     </div>
     <div class="columns is-centered">
