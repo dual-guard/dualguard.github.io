@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Discrete-time control barrier reward layer for safe, perceptive humanoid stair climbing, validated in simulation and on a full-sized humanoid robot.">
+  <meta name="keywords" content="humanoid robot, stair climbing, control barrier function, reinforcement learning, legged locomotion, perceptive locomotion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DUALGuard: Guarding Humanoid Stair Walking</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">DUALGuard: A Discrepancy-driven Uncertainty-Adaptive<br>Locomotion Framework to Guard Humanoids During Stair Walking</h1>
+          <!-- TODO: authors withheld for now, add names / affiliations / profile links before release -->
+          <div class="is-size-6 has-text-grey">Submitted to ICRA 2027</div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" id="pdf-link" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" id="video-link" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark is-static">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/hook.png" alt="Real VR-H5 humanoid climbing stairs free-moving and while carrying a 10 kg payload">
+      <h2 class="subtitle has-text-centered">
+        A discrete-time <span class="cbf-highlight">control barrier function</span> reward keeps every
+        footstep and the whole-body balance point inside a safe margin while a depth-conditioned
+        policy climbs and descends stairs, both free-moving and carrying a payload.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Perceptive locomotion for humanoids must remain safe under uncertainty in both terrain
+            perception and payload. Domain randomization can improve robustness but gives no
+            explicit signal for when the policy's estimate is unreliable, while existing
+            control-barrier-function (CBF) approaches typically apply a fixed safety margin
+            regardless. We introduce <strong>DUALGuard</strong>, which adapts discrete-time CBF
+            margins online using the discrepancy between the privileged critic state and the
+            policy's onboard estimate, within a single asymmetric actor-critic framework that
+            needs no post-training distillation. The uncertainty signal is stop-gradient decoupled
+            from policy learning, and is used to tighten foothold and clearance margins under
+            uncertain terrain perception, and balance margins under unknown payloads. A persistent
+            terrain belief combines depth observations with a forward-kinematics-propagated prior
+            to stay robust to occlusions. We demonstrate zero-shot sim-to-real transfer on a
+            full-scale humanoid (1.72&nbsp;m, 75&nbsp;kg) trained with payloads up to 10&nbsp;kg,
+            achieving 95.6&ndash;98.2% stair-traversal success across the design range and 83.8%
+            when stress-tested with a 20&nbsp;kg payload on unseen stair geometry.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <!--
+            TODO: replace this placeholder with either
+            (a) a YouTube embed: <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            (b) a self-hosted clip: <video controls playsinline><source src="./static/videos/real_robot.mp4" type="video/mp4"></video>
+          -->
+          <div class="video-placeholder">
+            Real-robot demonstration video coming soon.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width content">
+        <h2 class="title is-3">Method</h2>
+        <!-- TODO: write up-to-date Method text once finalized -->
+        <p>....</p>
+        <img src="./static/images/system_overview.png" alt="DUALGuard training pipeline overview">
+        <p class="result-caption has-text-centered">DUALGuard training pipeline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+
+    <div class="columns">
+      <div class="column">
+        <div class="result-figure">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/climb_up_compare.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="result-caption">
+          <strong>Stair ascent: free-moving vs. carrying a payload, side by side.</strong>
+          The onboard depth scan (red points) and the foothold/swing-trace overlay are drawn
+          live as the robot walks; each foothold lands well inside the tread, consistent with
+          the landing-foothold-reachability barrier.
+        </p>
+      </div>
+      <div class="column">
+        <div class="result-figure">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/climb_down_compare.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="result-caption">
+          <strong>Stair descent: free-moving vs. carrying a payload, side by side.</strong>
+          Same overlay, viewed from the front as the robot descends the staircase.
+        </p>
+      </div>
+    </div>
+
+    <!-- TODO: add balance-safety-margin (CBF/DCM) figure once finalized -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Real-World Results</h2>
+
+    <div class="columns">
+      <div class="column">
+        <div class="result-figure">
+          <!-- TODO: replace with <video autoplay muted loop playsinline controls><source src="./static/videos/real_normal.mp4" type="video/mp4"></video> -->
+          <div class="video-placeholder">Real-robot video coming soon.</div>
+        </div>
+        <p class="result-caption">
+          <strong>Same configuration as training.</strong>
+          Covers on, climbing a staircase with the same riser height and tread
+          depth on every step, on a rigid wooden floor.
+        </p>
+      </div>
+      <div class="column">
+        <div class="result-figure">
+          <!-- TODO: replace with <video autoplay muted loop playsinline controls><source src="./static/videos/real_payload.mp4" type="video/mp4"></video> -->
+          <div class="video-placeholder">Real-robot video coming soon.</div>
+        </div>
+        <p class="result-caption">
+          <strong>Stress test.</strong>
+          Covers removed (shifting total mass off the trained distribution), a
+          10&nbsp;kg payload carried in the arms, and a staircase with a
+          different riser height and tread depth on its ascending side than on
+          its descending side.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- TODO: update key/venue/year once the paper is accepted -->
+    <pre><code>@inproceedings{dualguard2027,
+  title     = {DUALGuard: A Discrepancy-driven Uncertainty-Adaptive Locomotion Framework to Guard Humanoids During Stair Walking},
+  author    = {TBD},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2027}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="#" id="footer-pdf-link">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <!-- TODO: code link, coming soon -->
+      <a class="icon-link is-static">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Page design adapted from the
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>,
+            licensed under
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
