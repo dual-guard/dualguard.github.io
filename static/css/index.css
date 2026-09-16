@@ -98,3 +98,42 @@ body {
 pre code {
   white-space: pre-wrap;
 }
+
+.sr-table th,
+.sr-table td {
+  padding: 0.45rem 0.5rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.sr-table thead tr:first-child th {
+  vertical-align: middle;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.sr-table th.sr-label,
+.sr-table td.sr-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sr-table th.group-with {
+  text-align: center;
+  background: hsla(141, 71%, 48%, 0.12);
+  border-bottom: 2px solid hsl(141, 71%, 40%) !important;
+}
+
+.sr-table th.group-without {
+  text-align: center;
+  background: hsla(0, 0%, 0%, 0.035);
+  border-bottom: 2px solid #999 !important;
+}
+
+.sr-table tbody tr:nth-child(odd) {
+  background: hsla(0, 0%, 0%, 0.02);
+}
+
+.sr-table .sr-total td {
+  font-weight: 700;
+  border-top: 2px solid #363636;
+}

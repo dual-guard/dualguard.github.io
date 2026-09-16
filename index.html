@@ -39,6 +39,12 @@
                 </a>
               </span>
               <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark is-static">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
                 <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-quote-right"></i></span>
                   <span>BibTeX</span>
@@ -92,21 +98,6 @@
       </div>
     </div>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <!--
-            TODO: replace this placeholder with either
-            (a) a YouTube embed: <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            (b) a self-hosted clip: <video controls playsinline><source src="./static/videos/real_robot.mp4" type="video/mp4"></video>
-          -->
-          <div class="video-placeholder">
-            Real-robot demonstration video coming soon.
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -114,11 +105,10 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width content">
-        <h2 class="title is-3">Method</h2>
-        <!-- TODO: write up-to-date Method text once finalized -->
-        <p>....</p>
-        <img src="./static/images/system_overview.png" alt="DUALGuard training pipeline overview">
-        <p class="result-caption has-text-centered">DUALGuard training pipeline.</p>
+        <!-- <h2 class="title is-3">Method</h2>
+        <p>....</p> -->
+        <img src="./static/images/structure.png" alt="Overview of DUALGuard">
+        <p class="result-caption has-text-centered">Overview of DUALGuard.</p>
       </div>
     </div>
   </div>
@@ -148,6 +138,57 @@
     <p class="result-caption">
       <strong>Stair descent: free-moving vs. carrying a payload, side by side.</strong>
       Same overlay, viewed from the front as the robot descends the staircase.
+    </p>
+
+    <div class="table-container" style="margin-top: 2.5rem;">
+      <table class="table is-fullwidth is-narrow has-text-centered sr-table">
+        <thead>
+          <tr>
+            <th rowspan="2" class="sr-label">Level</th>
+            <th rowspan="2" class="sr-label">Riser<br>(cm)</th>
+            <th rowspan="2" class="sr-label">Tread<br>(cm)</th>
+            <th colspan="5" class="group-with">with DUALGuard</th>
+            <th colspan="5" class="group-without">without DUALGuard</th>
+          </tr>
+          <tr>
+            <th>0</th><th>2</th><th>5</th><th>10</th><th>20</th>
+            <th>0</th><th>2</th><th>5</th><th>10</th><th>20</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sr-label">L1</td><td class="sr-label">8&ndash;12</td><td class="sr-label">30</td>
+            <td>99.7</td><td>99.7</td><td>99.5</td><td>99.6</td><td>95.7</td>
+            <td>93.4</td><td>92.9</td><td>93.2</td><td>92.8</td><td>88.2</td>
+          </tr>
+          <tr>
+            <td class="sr-label">L2</td><td class="sr-label">12&ndash;18</td><td class="sr-label">30</td>
+            <td>99.0</td><td>99.2</td><td>99.4</td><td>99.4</td><td>97.9</td>
+            <td>88.0</td><td>88.4</td><td>88.0</td><td>86.9</td><td>83.4</td>
+          </tr>
+          <tr>
+            <td class="sr-label">L3</td><td class="sr-label">19&ndash;24</td><td class="sr-label">30</td>
+            <td>97.5</td><td>97.7</td><td>97.0</td><td>97.2</td><td>97.0</td>
+            <td>83.5</td><td>82.8</td><td>80.8</td><td>77.9</td><td>73.9</td>
+          </tr>
+          <tr>
+            <td class="sr-label">OOD</td><td class="sr-label">25&ndash;27</td><td class="sr-label">25</td>
+            <td>93.8</td><td>90.0</td><td>89.7</td><td>87.2</td><td>83.8</td>
+            <td>34.1</td><td>42.5</td><td>42.8</td><td>34.4</td><td>9.1</td>
+          </tr>
+          <tr class="sr-total">
+            <td class="sr-label">All</td><td colspan="2" class="sr-label">&mdash;</td>
+            <td>98.2</td><td>98.0</td><td>97.7</td><td>97.6</td><td>95.6</td>
+            <td>82.9</td><td>83.5</td><td>82.9</td><td>80.7</td><td>74.6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="result-caption">
+      <strong>Stair-traversal success rate (%) by difficulty level and payload mass (kg).</strong>
+      L1&ndash;L3 span the riser/tread combinations seen during training; OOD (out-of-distribution) uses a
+      riser height and tread depth never seen in training. DUALGuard keeps success above 95% even at
+      20&nbsp;kg on OOD stairs, where the unconstrained baseline collapses to 9.1%.
     </p>
 
     <!-- TODO: add balance-safety-margin (CBF/DCM) figure once finalized -->
