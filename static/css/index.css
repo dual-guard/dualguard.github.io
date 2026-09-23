@@ -1,3 +1,10 @@
+/* Accent color used across the page */
+:root {
+  --accent: #ef3b3b;
+  --accent-soft: rgba(239, 59, 59, 0.1);
+  --box-bg: #f8fafc;
+}
+
 body {
   font-family: 'Noto Sans', sans-serif;
 }
@@ -19,6 +26,15 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
 }
 
+.publication-title {
+  font-weight: 700;
+}
+
+.publication-authors {
+  margin-bottom: 0.5rem;
+  color: #4a4a4a;
+}
+
 .submission-badge {
   display: inline-block;
   margin-top: 0.5rem;
@@ -32,21 +48,141 @@ body {
   letter-spacing: 0.02em;
 }
 
-.publication-authors a {
-  color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-  text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
 .link-block a {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+/* Full-screen video header */
+.video-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+}
+
+.video-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.video-hero-nav {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem 1.75rem;
+  font-size: 1.15rem;
+}
+
+.video-hero-nav a,
+.video-hero-nav .nav-soon,
+.video-hero-nav .nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #fff;
+}
+
+.video-hero-nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.video-hero-nav .nav-soon {
+  cursor: default;
+}
+
+.video-hero-nav .nav-button {
+  padding: 0.5rem 1.1rem;
+  color: #111;
+  background: #fff;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.video-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.video-hero-name {
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.video-hero-dual,
+.dual-letter {
+  color: var(--accent);
+}
+
+.video-hero-dual {
+  font-family: 'Orbitron', 'Noto Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.video-hero-title {
+  margin-bottom: 1.75rem;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 2.6rem;
+  line-height: 1.25;
+}
+
+.video-hero-venue {
+  font-size: 1.6rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width: 768px) {
+  .video-hero-nav {
+    left: 1rem;
+    right: 1rem;
+    justify-content: center;
+    gap: 0.4rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  .video-hero-name {
+    font-size: 2.6rem;
+  }
+
+  .video-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .video-hero-title br {
+    display: none;
+  }
+
+  .video-hero-venue {
+    font-size: 1.2rem;
+  }
 }
 
 .teaser .hero-body {
@@ -71,7 +207,7 @@ body {
 }
 
 .payload-highlight {
-  color: #c2410c;
+  color: var(--accent);
 }
 
 .video-caption {
@@ -79,8 +215,8 @@ body {
   line-height: 1.5;
   font-weight: 700;
   color: #1f2937;
-  background: #f8fafc;
-  border-left: 4px solid #2563eb;
+  background: var(--box-bg);
+  border-left: 4px solid var(--accent);
   border-radius: 6px;
   padding: 0.8rem 1rem;
 }
@@ -134,6 +270,49 @@ body {
   color: #555;
 }
 
+.method-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.method-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--box-bg);
+  border-left: 5px solid var(--accent);
+  border-radius: 6px;
+}
+
+.method-point-icon {
+  flex-shrink: 0;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.content .method-point p {
+  margin: 0;
+  font-size: 22px;
+  color: #374151;
+}
+
+.content .method-point p.method-point-title {
+  margin-bottom: 0.35rem;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
 .content > img {
   display: block;
   margin: 1.5rem auto;
@@ -173,8 +352,8 @@ pre code {
 
 .sr-table th.group-with {
   text-align: center;
-  background: hsla(141, 71%, 48%, 0.12);
-  border-bottom: 2px solid hsl(141, 71%, 40%) !important;
+  background: var(--accent-soft);
+  border-bottom: 2px solid var(--accent) !important;
 }
 
 .sr-table th.group-without {

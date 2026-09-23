@@ -8,12 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DUALGuard: Guarding Humanoid Stair Walking</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Castoro&family=Orbitron:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=12">
 </head>
 <body>
+
+<section class="hero video-hero">
+  <video class="video-hero-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="./static/videos/sim_title.mp4" type="video/mp4">
+  </video>
+  <div class="video-hero-overlay"></div>
+
+  <nav class="video-hero-nav">
+    <span class="nav-soon"><i class="fas fa-file-pdf"></i><span>Paper (Coming Soon)</span></span>
+    <a href="./static/videos/output_20mb_present.mp4" target="_blank" rel="noopener"><i class="fab fa-youtube"></i><span>Video</span></a>
+    <a href="#BibTeX"><i class="fas fa-quote-right"></i><span>BibTeX</span></a>
+    <span class="nav-button"><i class="fab fa-github"></i><span>Code (Coming Soon)</span></span>
+  </nav>
+
+  <div class="video-hero-content">
+    <h1 class="video-hero-name"><span class="video-hero-dual">DUAL</span>Guard</h1>
+    <h2 class="video-hero-title">A <span class="dual-letter">D</span>iscrepancy-driven <span class="dual-letter">U</span>ncertainty-<span class="dual-letter">A</span>daptive <span class="dual-letter">L</span>ocomotion Framework <br>to Guard Humanoids During Stair Walking</h2>
+    <p class="video-hero-venue">Submitted to ICRA 2027</p>
+  </div>
+</section>
 
 <section class="hero">
   <div class="hero-body">
@@ -22,18 +42,19 @@
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">DUALGuard: A Discrepancy-driven Uncertainty-Adaptive<br>Locomotion Framework to Guard Humanoids During Stair Walking</h1>
           <!-- TODO: authors withheld for now, add names / affiliations / profile links before release -->
+          <div class="is-size-4 publication-authors">Anonymous Authors</div>
           <div class="submission-badge">Submitted to ICRA 2027</div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="#" id="pdf-link" class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark is-static">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span>
+                  <span>Paper (coming soon)</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="#" id="video-link" class="external-link button is-normal is-rounded is-dark">
+                <a href="./static/videos/output_20mb_present.mp4" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video</span>
                 </a>
@@ -104,10 +125,29 @@
       <div class="column is-full-width content">
         <h2 class="title is-3 has-text-centered">Method Overview</h2>
         <img src="./static/images/structure.png" alt="Overview of DUALGuard">
-        <p class="has-text-justified">
-          <strong>DUALGuard</strong> combines depth images and proprioception with a persistent terrain memory that fuses new observations with a motion-compensated prior, retaining terrain information through occlusions. Terrain and payload uncertainty, learned from privileged simulator information, adapt discrete-time CBF-inspired rewards for stair-edge clearance and whole-body balance. Higher uncertainty induces more conservative safety margins, while a stop-gradient prevents the barrier rewards from biasing the uncertainty estimates. All components are trained jointly within a single asymmetric actor-critic framework, and the resulting policy operates on onboard observations without privileged inputs or post-training distillation.
-
-        </p>
+        <div class="method-points">
+          <div class="method-point">
+            <span class="method-point-icon"><i class="fas fa-layer-group"></i></span>
+            <div>
+              <p class="method-point-title">One-stage training</p>
+              <p>The policy is trained in a single stage using an asymmetric actor&ndash;critic framework with privileged training information, without requiring a separate distillation phase.</p>
+            </div>
+          </div>
+          <div class="method-point">
+            <span class="method-point-icon"><i class="fas fa-map"></i></span>
+            <div>
+              <p class="method-point-title">Terrain memory</p>
+              <p>Fuses new depth observations with a motion-compensated prior, preserving terrain information through occlusions.</p>
+            </div>
+          </div>
+          <div class="method-point">
+            <span class="method-point-icon"><i class="fas fa-shield-halved"></i></span>
+            <div>
+              <p class="method-point-title">Uncertainty sets the margin</p>
+              <p>Terrain and payload uncertainty adapt barrier decay rates for stair clearance and balance, shaping safer behavior through training rewards.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -201,30 +241,38 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Real-World Results</h2>
 
-    <div class="columns">
-      <div class="column">
+    <div class="columns is-multiline">
+      <div class="column is-half">
         <div class="result-figure">
-          <!-- TODO: replace with <video autoplay muted loop playsinline controls><source src="./static/videos/real_normal.mp4" type="video/mp4"></video> -->
-          <div class="video-placeholder">Real-robot video coming soon.</div>
+          <video class="lazy-autoplay" muted loop playsinline controls preload="metadata">
+            <source src="./static/videos/freepayload_fullcover.mp4" type="video/mp4">
+          </video>
         </div>
-        <p class="result-caption video-caption">
-          <strong>Same configuration as training.</strong>
-          Covers on, climbing a staircase with the same riser height and tread
-          depth on every step, on a rigid wooden floor.
-        </p>
+        <p class="result-caption video-caption">Free-moving</p>
       </div>
-      <div class="column">
+      <div class="column is-half">
         <div class="result-figure">
-          <!-- TODO: replace with <video autoplay muted loop playsinline controls><source src="./static/videos/real_payload.mp4" type="video/mp4"></video> -->
-          <div class="video-placeholder">Real-robot video coming soon.</div>
+          <video class="lazy-autoplay" muted loop playsinline controls preload="metadata">
+            <source src="./static/videos/10kg_edit.mp4" type="video/mp4">
+          </video>
         </div>
-        <p class="result-caption video-caption">
-          <strong>Stress test.</strong>
-          Covers removed (shifting total mass off the trained distribution), a
-          20&nbsp;kg payload carried in the arms, and a staircase with a
-          different riser height and tread depth on its ascending side than on
-          its descending side.
-        </p>
+        <p class="result-caption video-caption">10&nbsp;kg payload</p>
+      </div>
+      <div class="column is-half">
+        <div class="result-figure">
+          <video class="lazy-autoplay" muted loop playsinline controls preload="metadata">
+            <source src="./static/videos/10kg%20payload_no_cover.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="result-caption video-caption">10&nbsp;kg payload / covers removed</p>
+      </div>
+      <div class="column is-half">
+        <div class="result-figure">
+          <video class="lazy-autoplay" muted loop playsinline controls preload="metadata">
+            <source src="./static/videos/20kg_edit.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="result-caption video-caption">20&nbsp;kg payload (2&times; training config)</p>
       </div>
     </div>
   </div>
@@ -237,8 +285,7 @@
     <pre><code>@unpublished{dualguard2026,
   title  = {DUALGuard: A Discrepancy-driven Uncertainty-Adaptive Locomotion Framework to Guard Humanoids During Stair Walking},
   author = {Anonymous},
-  year   = {2026},
-  note   = {Manuscript submitted to the IEEE International Conference on Robotics and Automation (ICRA) 2027}
+  year   = {2026}
 }</code></pre>
   </div>
 </section>
@@ -264,6 +311,23 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Play real-world videos only while visible, so the page doesn't download all of them on load.
+  (function () {
+    var videos = document.querySelectorAll('video.lazy-autoplay');
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(function (v) { v.autoplay = true; v.play(); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.play(); } else { entry.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(function (v) { observer.observe(v); });
+  })();
+</script>
 
 </body>
 </html>
