@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Castoro&family=Orbitron:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=12">
+  <link rel="stylesheet" href="./static/css/index.css?v=13">
 </head>
 <body>
 
@@ -127,21 +127,18 @@
         <img src="./static/images/structure.png" alt="Overview of DUALGuard">
         <div class="method-points">
           <div class="method-point">
-            <span class="method-point-icon"><i class="fas fa-layer-group"></i></span>
             <div>
               <p class="method-point-title">One-stage training</p>
               <p>The policy is trained in a single stage using an asymmetric actor&ndash;critic framework with privileged training information, without requiring a separate distillation phase.</p>
             </div>
           </div>
           <div class="method-point">
-            <span class="method-point-icon"><i class="fas fa-map"></i></span>
             <div>
               <p class="method-point-title">Terrain memory</p>
               <p>Fuses new depth observations with a motion-compensated prior, preserving terrain information through occlusions.</p>
             </div>
           </div>
           <div class="method-point">
-            <span class="method-point-icon"><i class="fas fa-shield-halved"></i></span>
             <div>
               <p class="method-point-title">Uncertainty sets the margin</p>
               <p>Terrain and payload uncertainty adapt barrier decay rates for stair clearance and balance, shaping safer behavior through training rewards.</p>
